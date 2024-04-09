@@ -13,8 +13,8 @@ data/
 # Example code in package build process
 *-Ex.R
 
-# Output files from R CMD build
-/*.tar.gz
+# Project
+pri_responsiveness.Rproj
 
 # Output files from R CMD check
 /*.Rcheck/
@@ -40,8 +40,8 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# pkgdown site
-docs/
+# DS Store
+.DS_Store
 
 # translation temp files
 po/*~
