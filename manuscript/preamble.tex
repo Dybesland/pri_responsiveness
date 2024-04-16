@@ -1,0 +1,85 @@
+% -------------------------------------------------------
+% preamble.tex
+% -------------------------------------------------------
+
+% Document Settings
+\documentclass[12pt]{article}
+\usepackage[margin=2.54cm]{geometry} % Set page geometry
+\title{Miss Represented or Misrepresented? \\
+Gender Biased Priority Responsiveness in the Norwegian Parliament}
+\author{Sara Dybesland}
+\date{Draft \today} % Empty date to suppress the date
+
+% Math Packages
+\usepackage{amsmath}
+
+% Cross-referencing
+\usepackage{cleveref} 
+\Crefname{figure}{Figure}{Figures}
+\crefname{figure}{figure}{figures}
+\Crefname{table}{Table}{Tables}
+\crefname{table}{table}{tables}
+
+% Tables Packages
+\usepackage{dcolumn}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\usepackage{booktabs} % For professional looking tables
+\usepackage{longtable} % If the table spans multiple pages
+\usepackage{ltablex} % Combines longtable and tabularx
+\usepackage{makecell} % Allows for multiline cells
+\renewcommand\theadfont{\bfseries} % Bold table headers
+
+% Appendices
+\usepackage{appendix}
+
+% Bibliography Settings
+\usepackage[backend=biber, style=authoryear, natbib=true, url=false]{biblatex}
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldset=note, null]
+      \step[fieldset=eprint, null]
+    }
+  }
+}
+\DefineBibliographyStrings{english}{
+  page = {\ifbibliography{}{\adddot}}, % Remove "p." in citations
+  pages = {\ifbibliography{}{\adddot}}, % Remove "pp." in citations
+}
+\addbibresource{references.bib}
+
+% Font and Quotation Settings
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+
+% Hyperlink Settings
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% Paragraph Formatting
+\usepackage{ragged2e}
+
+% List and Table Settings
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{changepage}
+
+% Graphics Settings
+\usepackage{graphicx}
+\usepackage{float}
+
+% Document Line Spacing
+\usepackage{setspace}
+
+% Custom Colors
+\usepackage{xcolor}
+
+% -------------------------------------------------------
+% End of Preamble
+% -------------------------------------------------------

@@ -1,0 +1,34 @@
+% Document class and font size
+\documentclass{article}
+
+\input{preamble.tex}
+
+% Your LaTeX document body
+
+\begin{document}
+
+% Generate the title and author information
+\maketitle
+\doublespacing
+% Include abstract
+\begin{abstract}
+    \input{manuscript/sections/00_abstract}
+\end{abstract}
+\newpage
+
+% Main text
+
+\input{manuscript/sections/01_introduction}
+\input{manuscript/sections/02_literature_theory}
+\input{manuscript/sections/03_data_methods}
+\input{manuscript/sections/04_results}
+\input{manuscript/sections/05_discussion}
+
+% References and appendices
+
+\newpage
+\printbibliography
+\newpage
+\input{manuscript/sections/appendices}
+
+\end{document}
