@@ -12,6 +12,8 @@
 #===============================================================================
 # PREPARATION
 #===============================================================================
+setwd("/Users/saradybesland/Documents/Research/pri_responsiveness")
+
 # Set the locale to Norwegian for proper date and text handling. This helps with reading Norwegian dates and text formats correctly.
 Sys.setlocale(locale = "no_NO.UTF-8") # For Mac
 # Sys.setlocale(locale = "no_NO.utf8") # For Windows
@@ -37,10 +39,12 @@ library(tidytext)
 library(knitr)
 library(kableExtra)
 
+# Set knitr table to latex 
+options(knitr.table.format = "latex")
+
 # Load the datasets: speech data and survey share data from CSV files.
 speech_data <- read_csv("data/processed/parla_nor.csv")
 survey_data_shares <- read_csv("data/raw/survey_data_shares.csv")
-
 #===============================================================================
 # Create time variables corresponding to survey data to represent: 
 #===============================================================================
@@ -210,21 +214,26 @@ response_periods <- response_periods %>%
          time_stamp)%>%
   arrange(survey_round_to_represent) %>% 
   rename("NCP Survey Round" = survey_round_to_represent, 
-         "Start  Round" = survey_start_date, 
+         "Start Round" = survey_start_date, 
          "End  Round" = survey_end_date, 
-         "End Next  Round" = survey_next_end_date, 
-         "Days Between  Endings" = survey_days_to_next_end_date, 
-         "N Speeches Between  Rounds" = count_survey_round, 
-         "N Speeches  Round End + 60 Days" = count_time_stamp_90days, 
+         "End Next Round" = survey_next_end_date, 
+         "Days Between Endings" = survey_days_to_next_end_date, 
+         "N Speeches \n Between  Rounds" = count_survey_round, 
+         "N Speeches \n Round End + 60 Days" = count_time_stamp_90days, 
          "Time Stamp in Dynamic keyATM" = time_stamp)
 
 response_periods[is.na(response_periods)] <- "NA"
 
 # Print the data frame as a LaTeX table
 # With Booktabs 
-kable(response_periods, "latex", booktabs=TRUE, linesep = "") %>%  
+kbl(response_periods, "latex", booktabs=TRUE, linesep = "")%>% 
+  landscape() %>%  
   save_kable("output/tables/time_stamp.tex")
 
+kbl(response_periods) %>% kable_styling(latex_options = "striped")%>% 
+  column_spec(1, bold = T) %>% 
+  column_spec(2, width = "30em") %>%
+  footnote(general = "Here is a general comments of the table. ")%>% landscape()
 #===============================================================================
 # PREPARE DATA FOR keyATM 
 #===============================================================================
